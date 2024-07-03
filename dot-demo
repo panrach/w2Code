@@ -1,0 +1,8 @@
+myfunc()
+{
+  echo 'This is myfunc'
+}
+
+myvar='my-var'
+
+cd /

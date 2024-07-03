@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Array
+
+crew=(kermit piggy fozzie)  # set
+crew[3]='sam eagle'         # set by index
+echo "${crew[1]}"           # get by index
+crew+=(gonzo 'dr pepper')   # append
+echo ${#crew[@]}            # number of elements
+for c in "${crew[@]}"; do   # all elements, like $@
+  echo -n "$c, "
+done; echo
+# no prepend feature, but you can always do:
+crew=(scooter "${crew[@]}")
+for c in "${crew[@]}"; do echo -n "$c, "; done; echo
+
+
+# Associative array aka key-value dictionary.
+
+declare -A mark                    # mandatory
+mark=([denise]=4 [bob]=9)          # set
+mark[charles]=3                    # set one
+mark+=([bob]=7 [alice]=5)          # set more
+for k in "${!mark[@]}"; do         # all keys
+  echo "$k has ${mark[$k]} marks"  # lookup
+done

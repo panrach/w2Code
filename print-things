@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo hello world
+echo hello\ \ \ world
+echo 'hello   world'
+
+v=xxx
+v0=yyy
+
+echo $v0
+echo ${v}0
+echo '$v'
+

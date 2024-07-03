@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# To keep things simple with just one script, I use functions for cmd1 and cmd2.
+# In general they can be arbitrary commands.
+
+cmd1() {
+  echo vector
+  echo matrix
+}
+
+cmd2() {
+  echo scalar
+  echo eigenvalue
+}
+
+sort <(cmd1) <(cmd2)

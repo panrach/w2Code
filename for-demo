@@ -1,0 +1,15 @@
+#!/bin/sh
+
+for i in Albert Carol do ; do
+    echo $i
+done
+
+echo
+
+echo 'Begin printing cmdline arguments, one per line:'
+for i in "$@" ; do echo "$i" ; done
+echo 'End printing cmdline arguments'
+
+echo
+
+for i in $(seq 0 3); do echo $i; done

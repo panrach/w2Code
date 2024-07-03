@@ -1,0 +1,38 @@
+#!/bin/sh
+
+dryrun=
+verbose=
+msg=hello
+
+while getopts M:nv myflag ; do
+  case "$myflag" in
+    n)
+      dryrun=y
+      ;;
+    v)
+      verbose=y
+      ;;
+    M)
+      msg="$OPTARG"
+      ;;
+    ?)
+      # Unrecognized option. Normally would exit with error message.
+      ;;
+  esac
+done
+
+# Now can get rid of options.
+shift $(expr $OPTIND - 1)
+# Now $@ has just the filenames.
+
+for f in "$@" ; do
+  case "$f" in
+    *.py)
+      [ -n "$verbose" ] && echo "deleting $f"
+      [ -z "$dryrun" ] && rm "$f"
+      ;;
+    *)
+      [ -n "$verbose" ] && echo "not deleting $f"            
+      echo "$msg $f"
+  esac
+done

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+x=stuff
+
+cat << EOF
+Hello I'm Albert.
+You can use variables too
+E.g., \$x=$x
+EOF
+
+echo
+
+cat << 'EOF'
+Hello I'm Albert.
+Now $x is $x
+EOF
+
+echo
+
+cat << "EOF"
+Hello I'm Albert.
+And $x is still $x
+EOF

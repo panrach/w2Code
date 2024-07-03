@@ -1,0 +1,34 @@
+#!/bin/bash
+
+myfunc() {
+  local x y=hello  # x,y local, y inited
+  x=hi
+  echo myfunc "$x" "$y"
+}
+
+x=1
+y=2
+myfunc
+echo toplevel "$x" "$y"
+
+
+# The following shows dynamic scoping, the opposite of lexical scoping.
+# Lexical scoping is what you have always known from sane languages.
+
+echo
+echo 'Dynamic scoping demo:'
+
+z=good
+
+victim() {
+  echo "$z"
+  # dynamic scoping => z from caller, not from code structure
+}
+
+mitm() {
+  local z=evil
+  victim
+}
+
+echo -n 'mitm ' ; mitm
+echo -n 'toplevel ' ; victim

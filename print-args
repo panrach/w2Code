@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "\$# = $#"
+echo "\$0 = '$0'"
+while [ $# -gt 0 ] ; do
+  echo "'$1'"
+  shift
+done
